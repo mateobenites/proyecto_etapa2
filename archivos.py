@@ -50,6 +50,18 @@ def cargar_configuracion():
         if clave not in config:
             raise ValueError("Al archivo " + ARCHIVO_CONFIG + " le falta la clave '" + clave + "'.")
 
+    if not isinstance(config["tipos"], dict):
+        raise ValueError("Los tipos de equipo deben estar en un diccionario.")
+
+    if not isinstance(config["estados"], list):
+        raise ValueError("Los estados deben estar en una lista.")
+
+    if not isinstance(config["departamentos"], list):
+        raise ValueError("Los departamentos deben estar en una lista.")
+
+    if not isinstance(config["transiciones"], dict):
+        raise ValueError("Las transiciones deben estar en un diccionario.")
+    
     # cada estado tiene que tener su lista de cambios permitidos (puede estar vacia)
     for estado in config["estados"]:
         if estado not in config["transiciones"]:

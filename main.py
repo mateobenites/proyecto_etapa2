@@ -66,7 +66,8 @@ def guardar_operacion(equipos, movimientos, codigo, copia, movimiento):
     except OSError:
         print("Atencion: tampoco se pudo restaurar", archivos.ARCHIVO_EQUIPOS)
 
-    print("La operacion no se realizo y el equipo quedo como estaba.")
+    print("La operacion no se completo correctamente.")
+    print("Verifique los archivos antes de realizar otra operacion.")
     return False
 
 
@@ -590,4 +591,5 @@ def main():
             print("Opción inválida. Intente nuevamente.")
 
 
-main()
+if __name__ == "__main__":
+    main()

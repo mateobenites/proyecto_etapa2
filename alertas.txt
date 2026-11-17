@@ -1,5 +1,5 @@
 REPORTE DE ALERTAS E INCIDENCIAS
-Generado el 17/11/2026 a las 11:55:59 por admin
+Generado el 17/11/2026 a las 12:28:18 por admin
 --------------------------------------------------
 Tipos con baja disponibilidad (minimo 2):
   - Monitor: 1 disponible(s)
@@ -13,6 +13,6 @@ Filas invalidas encontradas en los archivos (ver descartados.txt):
   - movimientos.csv linea 30: La fecha 31/04/2026 tiene el formato correcto pero no existe.
 
 Equipos cuyo estado no coincide con su ultimo movimiento:
-  - DSK-0005: figura Disponible pero su ultimo movimiento dice En reparacion. Revisar manualmente.
+  - DSK-0005: figura Disponible pero su ultimo movimiento dice En reparación. Revisar manualmente.
 
 Total de incidencias: 6
