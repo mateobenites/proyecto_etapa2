@@ -1,0 +1,41 @@
+fecha;hora;codigo;legajo;tipo_movimiento;estado_anterior;estado_nuevo;usuario;detalle
+02/03/2026;09:15:22;NTB-0001;;alta;;Disponible;fagostino;Alta de equipo Notebook
+02/03/2026;09:16:05;NTB-0002;;alta;;Disponible;fagostino;Alta de equipo Notebook
+02/03/2026;09:17:40;NTB-0003;;alta;;Disponible;fagostino;Alta de equipo Notebook
+02/03/2026;09:18:12;NTB-0004;;alta;;Disponible;fagostino;Alta de equipo Notebook
+02/03/2026;09:20:31;NTB-0005;;alta;;Disponible;fagostino;Alta de equipo Notebook
+02/03/2026;09:22:08;NTB-0006;;alta;;Disponible;fagostino;Alta de equipo Notebook
+02/03/2026;10:01:44;DSK-0001;;alta;;Disponible;mbenites;Alta de equipo Desktop
+02/03/2026;10:03:10;DSK-0002;;alta;;Disponible;mbenites;Alta de equipo Desktop
+02/03/2026;10:04:55;DSK-0003;;alta;;Disponible;mbenites;Alta de equipo Desktop
+02/03/2026;10:06:27;DSK-0004;;alta;;Disponible;mbenites;Alta de equipo Desktop
+02/03/2026;10:08:02;DSK-0005;;alta;;Disponible;mbenites;Alta de equipo Desktop
+03/03/2026;11:30:15;MON-0001;;alta;;Disponible;ttobar;Alta de equipo Monitor
+03/03/2026;11:31:49;MON-0002;;alta;;Disponible;ttobar;Alta de equipo Monitor
+03/03/2026;11:33:20;MON-0003;;alta;;Disponible;ttobar;Alta de equipo Monitor
+03/03/2026;11:35:02;MON-0004;;alta;;Disponible;ttobar;Alta de equipo Monitor
+03/03/2026;15:12:33;CEL-0001;;alta;;Disponible;sperez;Alta de equipo Celular
+03/03/2026;15:14:10;CEL-0002;;alta;;Disponible;sperez;Alta de equipo Celular
+03/03/2026;15:15:47;CEL-0003;;alta;;Disponible;sperez;Alta de equipo Celular
+03/03/2026;15:17:21;CEL-0004;;alta;;Disponible;sperez;Alta de equipo Celular
+03/03/2026;15:19:00;CEL-0005;;alta;;Disponible;sperez;Alta de equipo Celular
+10/03/2026;09:05:12;NTB-0001;2350;asignacion;Disponible;Asignado;fagostino;Asignado a Carla Rodriguez
+10/03/2026;09:10:45;MON-0001;2350;asignacion;Disponible;Asignado;fagostino;Asignado a Carla Rodriguez
+10/03/2026;09:40:03;DSK-0001;1024;asignacion;Disponible;Asignado;mbenites;Asignado a Lucia Fernandez
+10/03/2026;10:15:18;NTB-0002;1187;asignacion;Disponible;Asignado;mbenites;Asignado a Martin Gomez
+10/03/2026;10:16:55;CEL-0001;1187;asignacion;Disponible;Asignado;mbenites;Asignado a Martin Gomez
+11/03/2026;14:20:09;NTB-0003;5208;asignacion;Disponible;Asignado;ttobar;Asignado a Tomas Romero
+12/03/2026;16:02:41;CEL-0002;3390;asignacion;Disponible;Asignado;sperez;Asignado a Julian Perez
+12/03/2026;16:30:12;CEL-0005;6012;asignacion;Disponible;Asignado;sperez;Asignado a Federico Diaz
+31/04/2026;16:20:44;CEL-0003;;cambio_estado;Disponible;En reparacion;sperez;Pantalla rayada
+05/05/2026;10:11:33;NTB-0005;3105;asignacion;Disponible;Asignado;mbenites;Asignado a Sofia Martinez
+05/05/2026;10:13:02;MON-0002;3105;asignacion;Disponible;Asignado;mbenites;Asignado a Sofia Martinez
+05/05/2026;10:25:50;DSK-0004;4471;asignacion;Disponible;Asignado;mbenites;Asignado a Valentina Sosa
+20/05/2026;12:00:07;DSK-0003;;cambio_estado;Disponible;En reparacion;ttobar;No enciende
+03/06/2026;17:45:29;DSK-0003;;cambio_estado;En reparacion;Fuera de servicio;ttobar;Placa madre dañada, no se puede reparar
+14/07/2026;09:33:14;NTB-0003;5208;devolucion;Asignado;Disponible;fagostino;Devuelto por Tomas Romero
+14/07/2026;09:41:02;NTB-0007;;alta;;Disponible;fagostino;Alta de equipo Notebook
+14/07/2026;09:50:40;NTB-0006;2412;asignacion;Disponible;Asignado;fagostino;Asignado a Diego Lopez
+28/08/2026;11:12:55;NTB-0004;;cambio_estado;Disponible;En reparacion;mbenites;Pantalla rota
+15/10/2026;15:40:21;MON-0004;;cambio_estado;Disponible;En reparacion;sperez;Falla de imagen
+30/10/2026;10:05:36;DSK-0005;;cambio_estado;Disponible;En reparacion;ttobar;Ruido en el ventilador

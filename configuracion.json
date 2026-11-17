@@ -1,0 +1,19 @@
+{
+    "estados": ["Disponible", "Asignado", "En reparacion", "Fuera de servicio"],
+    "departamentos": ["Administración", "Ventas", "Sistemas", "Marketing"],
+    "tipos": {
+        "DSK": "Desktop",
+        "NTB": "Notebook",
+        "MON": "Monitor",
+        "CEL": "Celular"
+    },
+    "transiciones": {
+        "Disponible": ["En reparacion", "Asignado"],
+        "Asignado": ["Disponible"],
+        "En reparacion": ["Disponible", "Fuera de servicio"],
+        "Fuera de servicio": []
+    },
+    "minimo_disponibles": 2,
+    "legajo_minimo": 1000,
+    "legajo_maximo": 9999
+}

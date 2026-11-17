@@ -1,0 +1,23 @@
+codigo;tipo;estado;legajo
+NTB-0001;Notebook;Asignado;2350
+NTB-0002;Notebook;Asignado;1187
+NTB-0003;Notebook;Disponible;
+NTB-0004;Notebook;En reparacion;
+NTB-0005;Notebook;Asignado;3105
+NTB-0006;Notebook;Asignado;2412
+NTB-0007;Notebook;Disponible;
+DSK-0001;Desktop;Asignado;1024
+DSK-0002;Desktop;Disponible;
+DSK-0003;Desktop;Fuera de servicio;
+DSK-0004;Desktop;Asignado;4471
+DSK-0005;Desktop;Disponible;
+MON-0001;Monitor;Asignado;2350
+MON-0002;Monitor;Asignado;3105
+MON-0003;Monitor;Disponible;
+MON-0004;Monitor;En reparacion;
+CEL-0001;Celular;Asignado;1187
+CEL-0002;Celular;Asignado;3390
+CEL-0003;Celular;Disponible;
+CEL-0004;Celular;Disponible;
+CEL-0005;Celular;Asignado;6012
+NTB-08;Notebook;Disponible;
