@@ -79,7 +79,6 @@ proyecto_etapa2/
 ├── equipos.csv             # equipos
 ├── empleados.csv           # empleados
 ├── movimientos.csv         # historial de movimientos
-├── conftest.py             # permite que pytest encuentre los módulos desde la carpeta tests
 ├── README.md
 └── tests/
     └── test_operaciones.py # 7 pruebas unitarias
