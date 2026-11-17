@@ -1,5 +1,5 @@
 {
-    "estados": ["Disponible", "Asignado", "En reparacion", "Fuera de servicio"],
+    "estados": ["Disponible", "Asignado", "En reparación", "Fuera de servicio"],
     "departamentos": ["Administración", "Ventas", "Sistemas", "Marketing"],
     "tipos": {
         "DSK": "Desktop",
@@ -8,9 +8,9 @@
         "CEL": "Celular"
     },
     "transiciones": {
-        "Disponible": ["En reparacion", "Asignado"],
+        "Disponible": ["En reparación", "Asignado"],
         "Asignado": ["Disponible"],
-        "En reparacion": ["Disponible", "Fuera de servicio"],
+        "En reparación": ["Disponible", "Fuera de servicio"],
         "Fuera de servicio": []
     },
     "minimo_disponibles": 2,

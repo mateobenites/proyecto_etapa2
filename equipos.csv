@@ -2,7 +2,7 @@ codigo;tipo;estado;legajo
 NTB-0001;Notebook;Asignado;2350
 NTB-0002;Notebook;Asignado;1187
 NTB-0003;Notebook;Disponible;
-NTB-0004;Notebook;En reparacion;
+NTB-0004;Notebook;En reparación;
 NTB-0005;Notebook;Asignado;3105
 NTB-0006;Notebook;Asignado;2412
 NTB-0007;Notebook;Disponible;
@@ -14,7 +14,7 @@ DSK-0005;Desktop;Disponible;
 MON-0001;Monitor;Asignado;2350
 MON-0002;Monitor;Asignado;3105
 MON-0003;Monitor;Disponible;
-MON-0004;Monitor;En reparacion;
+MON-0004;Monitor;En reparación;
 CEL-0001;Celular;Asignado;1187
 CEL-0002;Celular;Asignado;3390
 CEL-0003;Celular;Disponible;

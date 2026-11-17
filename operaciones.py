@@ -318,10 +318,10 @@ def resumen_unicos(equipos, empleados, movimientos):
     # con la resta de conjuntos salen los que no tienen ninguno
     empleados_sin_equipo = set(empleados) - empleados_con_equipo
 
-    # tipos de equipo que alguna vez pasaron a En reparacion
+    # tipos de equipo que alguna vez pasaron a En reparación
     tipos_en_reparacion = set()
     for mov in movimientos:
-        if mov["estado_nuevo"] == "En reparacion" and mov["codigo"] in equipos:
+        if mov["estado_nuevo"] == "En reparación" and mov["codigo"] in equipos:
             tipos_en_reparacion.add(equipos[mov["codigo"]]["tipo"])
 
     # departamentos de los empleados que aparecen en algun movimiento

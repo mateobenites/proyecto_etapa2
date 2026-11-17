@@ -27,15 +27,15 @@ fecha;hora;codigo;legajo;tipo_movimiento;estado_anterior;estado_nuevo;usuario;de
 11/03/2026;14:20:09;NTB-0003;5208;asignacion;Disponible;Asignado;ttobar;Asignado a Tomas Romero
 12/03/2026;16:02:41;CEL-0002;3390;asignacion;Disponible;Asignado;sperez;Asignado a Julian Perez
 12/03/2026;16:30:12;CEL-0005;6012;asignacion;Disponible;Asignado;sperez;Asignado a Federico Diaz
-31/04/2026;16:20:44;CEL-0003;;cambio_estado;Disponible;En reparacion;sperez;Pantalla rayada
+31/04/2026;16:20:44;CEL-0003;;cambio_estado;Disponible;En reparación;sperez;Pantalla rayada
 05/05/2026;10:11:33;NTB-0005;3105;asignacion;Disponible;Asignado;mbenites;Asignado a Sofia Martinez
 05/05/2026;10:13:02;MON-0002;3105;asignacion;Disponible;Asignado;mbenites;Asignado a Sofia Martinez
 05/05/2026;10:25:50;DSK-0004;4471;asignacion;Disponible;Asignado;mbenites;Asignado a Valentina Sosa
-20/05/2026;12:00:07;DSK-0003;;cambio_estado;Disponible;En reparacion;ttobar;No enciende
-03/06/2026;17:45:29;DSK-0003;;cambio_estado;En reparacion;Fuera de servicio;ttobar;Placa madre dañada, no se puede reparar
+20/05/2026;12:00:07;DSK-0003;;cambio_estado;Disponible;En reparación;ttobar;No enciende
+03/06/2026;17:45:29;DSK-0003;;cambio_estado;En reparación;Fuera de servicio;ttobar;Placa madre dañada, no se puede reparar
 14/07/2026;09:33:14;NTB-0003;5208;devolucion;Asignado;Disponible;fagostino;Devuelto por Tomas Romero
 14/07/2026;09:41:02;NTB-0007;;alta;;Disponible;fagostino;Alta de equipo Notebook
 14/07/2026;09:50:40;NTB-0006;2412;asignacion;Disponible;Asignado;fagostino;Asignado a Diego Lopez
-28/08/2026;11:12:55;NTB-0004;;cambio_estado;Disponible;En reparacion;mbenites;Pantalla rota
-15/10/2026;15:40:21;MON-0004;;cambio_estado;Disponible;En reparacion;sperez;Falla de imagen
-30/10/2026;10:05:36;DSK-0005;;cambio_estado;Disponible;En reparacion;ttobar;Ruido en el ventilador
+28/08/2026;11:12:55;NTB-0004;;cambio_estado;Disponible;En reparación;mbenites;Pantalla rota
+15/10/2026;15:40:21;MON-0004;;cambio_estado;Disponible;En reparación;sperez;Falla de imagen
+30/10/2026;10:05:36;DSK-0005;;cambio_estado;Disponible;En reparación;ttobar;Ruido en el ventilador

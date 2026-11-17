@@ -70,13 +70,17 @@ def guardar_operacion(equipos, movimientos, codigo, copia, movimiento):
     return False
 
 
+
 def pedir_estado(config):
     print("Estados:", ", ".join(config["estados"]))
     estado = input("Estado: ").strip().capitalize()
-    if estado == "En reparación":
-        estado = "En reparacion"
+
+    if estado == "En reparacion":
+        estado = "En reparación"
+
     validaciones.validar_en_lista(estado, config["estados"], "Estado")
     return estado
+
 
 
 def pedir_departamento(config):
@@ -383,7 +387,7 @@ def opcion_estadisticas(config, equipos, empleados, movimientos):
     for estado in por_estado:
         print(" ", estado + ":", por_estado[estado])
     print("Porcentaje de equipos asignados:", round(operaciones.porcentaje_asignados(equipos), 2), "%")
-    print("Equipos en reparacion:", por_estado.get("En reparacion", 0))
+    print("Equipos en reparacion:", por_estado.get("En reparación", 0))
 
     tabla = operaciones.asignados_por_departamento_y_tipo(equipos, empleados, config["departamentos"], config["tipos"])
 

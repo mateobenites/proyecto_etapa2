@@ -1,0 +1,18 @@
+REPORTE DE ALERTAS E INCIDENCIAS
+Generado el 17/11/2026 a las 11:55:59 por admin
+--------------------------------------------------
+Tipos con baja disponibilidad (minimo 2):
+  - Monitor: 1 disponible(s)
+
+Equipos asignados a empleados que no existen:
+  - CEL-0005 (legajo 6012). Corregir registrando la devolucion.
+
+Filas invalidas encontradas en los archivos (ver descartados.txt):
+  - equipos.csv linea 23: Codigo 'NTB-08' invalido. El formato esperado es AAA-0000 (por ejemplo NTB-0001).
+  - empleados.csv linea 10: cantidad de campos incorrecta
+  - movimientos.csv linea 30: La fecha 31/04/2026 tiene el formato correcto pero no existe.
+
+Equipos cuyo estado no coincide con su ultimo movimiento:
+  - DSK-0005: figura Disponible pero su ultimo movimiento dice En reparacion. Revisar manualmente.
+
+Total de incidencias: 6

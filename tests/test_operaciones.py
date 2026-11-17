@@ -29,21 +29,21 @@ def test_porcentaje_asignados():
         "NTB-0001": {"tipo": "Notebook", "estado": "Asignado", "legajo": "1234"},
         "NTB-0002": {"tipo": "Notebook", "estado": "Disponible", "legajo": ""},
         "MON-0001": {"tipo": "Monitor", "estado": "Disponible", "legajo": ""},
-        "CEL-0001": {"tipo": "Celular", "estado": "En reparacion", "legajo": ""}
+        "CEL-0001": {"tipo": "Celular", "estado": "En reparación", "legajo": ""}
     }
     assert operaciones.porcentaje_asignados(equipos) == 25
 
 
 # 4) Acumulacion por clave
 def test_contar_por_estado():
-    estados = ("Disponible", "Asignado", "En reparacion", "Fuera de servicio")
+    estados = ("Disponible", "Asignado", "En reparación", "Fuera de servicio")
     equipos = {
         "NTB-0001": {"tipo": "Notebook", "estado": "Asignado", "legajo": "1234"},
         "NTB-0002": {"tipo": "Notebook", "estado": "Disponible", "legajo": ""},
         "MON-0001": {"tipo": "Monitor", "estado": "Disponible", "legajo": ""},
-        "CEL-0001": {"tipo": "Celular", "estado": "En reparacion", "legajo": ""}
+        "CEL-0001": {"tipo": "Celular", "estado": "En reparación", "legajo": ""}
     }
-    esperado = {"Disponible": 2, "Asignado": 1, "En reparacion": 1, "Fuera de servicio": 0}
+    esperado = {"Disponible": 2, "Asignado": 1, "En reparación": 1, "Fuera de servicio": 0}
     assert operaciones.contar_por_estado(equipos, estados) == esperado
 
 
