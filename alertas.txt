@@ -1,5 +1,5 @@
 REPORTE DE ALERTAS E INCIDENCIAS
-Generado el 18/11/2026 a las 12:15:37 por admin
+Generado el 18/11/2026 a las 15:11:31 por admin
 --------------------------------------------------
 Tipos con baja disponibilidad (minimo 2):
   - Monitor: 1 disponible(s)

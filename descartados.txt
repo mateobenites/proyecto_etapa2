@@ -1,4 +1,3 @@
-17/11/2026 11:55:59 | equipos.csv | linea 23 | NTB-08;Notebook;Disponible; | motivo: Codigo 'NTB-08' invalido. El formato esperado es AAA-0000 (por ejemplo NTB-0001).
-17/11/2026 11:55:59 | empleados.csv | linea 10 | 4980;Ana Torres | motivo: cantidad de campos incorrecta
-17/11/2026 11:55:59 | movimientos.csv | linea 30 | 31/04/2026;16:20:44;CEL-0003;;cambio_estado;Disponible;En reparacion;sperez;Pantalla rayada | motivo: La fecha 31/04/2026 tiene el formato correcto pero no existe.
-17/11/2026 12:28:18 | movimientos.csv | linea 30 | 31/04/2026;16:20:44;CEL-0003;;cambio_estado;Disponible;En reparación;sperez;Pantalla rayada | motivo: La fecha 31/04/2026 tiene el formato correcto pero no existe.
+18/11/2026 15:11:31 | equipos.csv | linea 23 | NTB-08;Notebook;Disponible; | motivo: Codigo 'NTB-08' invalido. El formato esperado es AAA-0000 (por ejemplo NTB-0001).
+18/11/2026 15:11:31 | empleados.csv | linea 10 | 4980;Ana Torres | motivo: cantidad de campos incorrecta
+18/11/2026 15:11:31 | movimientos.csv | linea 30 | 31/04/2026;16:20:44;CEL-0003;;cambio_estado;Disponible;En reparación;sperez;Pantalla rayada | motivo: La fecha 31/04/2026 tiene el formato correcto pero no existe.
