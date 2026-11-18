@@ -32,15 +32,13 @@ CLAVES_CONFIG = ("estados", "departamentos", "tipos", "transiciones",
                  "minimo_disponibles", "legajo_minimo", "legajo_maximo")
 
 
-# ---------------------------------------------------------------
 # Archivos obligatorios: configuracion y usuarios
-# ---------------------------------------------------------------
 
 def cargar_configuracion():
-    """Lee configuracion.json y devuelve un diccionario.
-    Si el archivo no existe tira FileNotFoundError, si no es un JSON valido tira
-    JSONDecodeError y si le falta alguna clave tira ValueError. No se crea uno nuevo
-    porque sin la configuracion el programa no puede funcionar."""
+    # Lee configuracion.json y devuelve un diccionario.
+    # Si el archivo no existe tira FileNotFoundError, si no es un JSON valido tira
+    # JSONDecodeError y si le falta alguna clave tira ValueError. No se crea uno nuevo
+    # porque sin la configuracion el programa no puede funcionar.
     with open(ARCHIVO_CONFIG, "rt", encoding="utf-8") as archivo:
         contenido = archivo.read()
 
@@ -83,9 +81,9 @@ def cargar_configuracion():
 
 
 def cargar_usuarios(descartados):
-    """Lee usuarios.csv y devuelve un diccionario {usuario: contrasena}.
-    Si el archivo no existe tira FileNotFoundError (no se crea, es obligatorio).
-    Las filas incompletas o con el usuario repetido se agregan a descartados."""
+    # Lee usuarios.csv y devuelve un diccionario {usuario: contrasena}.
+    # Si el archivo no existe tira FileNotFoundError.
+    # Las filas incompletas o con el usuario repetido se agregan a descartados.
     usuarios = {}
 
     with open(ARCHIVO_USUARIOS, "rt", encoding="utf-8") as archivo:
@@ -117,13 +115,11 @@ def cargar_usuarios(descartados):
     return usuarios
 
 
-# ---------------------------------------------------------------
 # Funciones generales
-# ---------------------------------------------------------------
 
 def crear_si_no_existe(nombre_archivo, encabezado):
-    """Si el archivo no existe, lo crea vacio con su encabezado.
-    Devuelve True si lo tuvo que crear."""
+    # Si el archivo no existe, lo crea vacio con su encabezado.
+    # Devuelve True si lo tuvo que crear.
     try:
         archivo = open(nombre_archivo, "rt", encoding="utf-8")
         archivo.close()
@@ -135,9 +131,9 @@ def crear_si_no_existe(nombre_archivo, encabezado):
 
 
 def asegurar_salto_final(nombre_archivo):
-    """Si la ultima linea del archivo no termina con salto de linea, lo agrega.
-    Puede pasar si alguien edito el CSV a mano. Sin esto, la fila nueva que se
-    agrega con modo "at" quedaria pegada a la ultima fila."""
+    # Si la ultima linea del archivo no termina con salto de linea, lo agrega.
+    # Puede pasar si alguien edito el CSV a mano. Sin esto, la fila nueva que se
+    # agrega con modo "at" quedaria pegada a la ultima fila.
     ultima = ""
     with open(nombre_archivo, "rt", encoding="utf-8") as archivo:
         for linea in archivo:
@@ -149,7 +145,7 @@ def asegurar_salto_final(nombre_archivo):
 
 
 def agregar_descartado(descartados, nombre_archivo, numero_linea, contenido, motivo):
-    """Agrega una fila invalida a la lista de descartados."""
+    # Agrega una fila invalida a la lista de descartados.
     descartados.append({
         "archivo": nombre_archivo,
         "linea": numero_linea,
@@ -158,15 +154,13 @@ def agregar_descartado(descartados, nombre_archivo, numero_linea, contenido, mot
     })
 
 
-# ---------------------------------------------------------------
 # Carga de registros (equipos, empleados y movimientos)
 # Los archivos se recorren linea por linea, como vimos en la clase de archivos.
-# ---------------------------------------------------------------
 
 def cargar_equipos(config, descartados):
-    """Lee equipos.csv y devuelve un diccionario con el codigo como clave:
-    {"NTB-0001": {"tipo": "Notebook", "estado": "Asignado", "legajo": "2350"}, ...}
-    Las filas invalidas no se cargan y se agregan a descartados."""
+    # Lee equipos.csv y devuelve un diccionario con el codigo como clave:
+    # {"NTB-0001": {"tipo": "Notebook", "estado": "Asignado", "legajo": "2350"}, ...}
+    # Las filas invalidas no se cargan y se agregan a descartados.
     crear_si_no_existe(ARCHIVO_EQUIPOS, ENCABEZADO_EQUIPOS)
     equipos = {}
 
@@ -211,8 +205,8 @@ def cargar_equipos(config, descartados):
 
 
 def cargar_empleados(config, descartados):
-    """Lee empleados.csv y devuelve un diccionario con el legajo como clave:
-    {"2350": {"nombre": "Carla Rodriguez", "departamento": "Sistemas"}, ...}"""
+    # Lee empleados.csv y devuelve un diccionario con el legajo como clave:
+    # {"2350": {"nombre": "Carla Rodriguez", "departamento": "Sistemas"}, ...}
     crear_si_no_existe(ARCHIVO_EMPLEADOS, ENCABEZADO_EMPLEADOS)
     empleados = {}
 
@@ -250,8 +244,8 @@ def cargar_empleados(config, descartados):
 
 
 def cargar_movimientos(config, descartados):
-    """Lee movimientos.csv y devuelve una lista de diccionarios (un diccionario por movimiento),
-    en el mismo orden en que estan en el archivo (del mas viejo al mas nuevo)."""
+    # Lee movimientos.csv y devuelve una lista de diccionarios (un diccionario por movimiento),
+    # en el mismo orden en que estan en el archivo (del mas viejo al mas nuevo).
     crear_si_no_existe(ARCHIVO_MOVIMIENTOS, ENCABEZADO_MOVIMIENTOS)
     movimientos = []
 
@@ -290,12 +284,10 @@ def cargar_movimientos(config, descartados):
     return movimientos
 
 
-# ---------------------------------------------------------------
 # Escritura
-# ---------------------------------------------------------------
 
 def guardar_equipos(equipos):
-    """Reescribe equipos.csv completo con los datos del diccionario."""
+    # Reescribe equipos.csv completo con los datos del diccionario.
     with open(ARCHIVO_EQUIPOS, "wt", encoding="utf-8") as archivo:
         archivo.write(SEPARADOR.join(ENCABEZADO_EQUIPOS) + "\n")
         for codigo in equipos:
@@ -305,7 +297,7 @@ def guardar_equipos(equipos):
 
 
 def agregar_empleado(legajo, empleado):
-    """Agrega una fila al final de empleados.csv (modo "at" = agregar texto)."""
+    # Agrega una fila al final de empleados.csv (modo "at" = agregar texto).
     asegurar_salto_final(ARCHIVO_EMPLEADOS)
     with open(ARCHIVO_EMPLEADOS, "at", encoding="utf-8") as archivo:
         fila = [legajo, empleado["nombre"], empleado["departamento"]]
@@ -313,7 +305,7 @@ def agregar_empleado(legajo, empleado):
 
 
 def agregar_movimiento(movimiento):
-    """Agrega un movimiento al final de movimientos.csv, respetando el orden del encabezado."""
+    # Agrega un movimiento al final de movimientos.csv, respetando el orden del encabezado.
     asegurar_salto_final(ARCHIVO_MOVIMIENTOS)
     with open(ARCHIVO_MOVIMIENTOS, "at", encoding="utf-8") as archivo:
         fila = [movimiento[campo] for campo in ENCABEZADO_MOVIMIENTOS]
@@ -321,18 +313,18 @@ def agregar_movimiento(movimiento):
 
 
 def guardar_texto(nombre_archivo, lineas):
-    """Escribe un archivo de texto (reporte.txt o alertas.txt). Si ya existia se sobrescribe."""
+    # Escribe un archivo de texto (reporte.txt o alertas.txt). Si ya existia se sobrescribe.
     with open(nombre_archivo, "wt", encoding="utf-8") as archivo:
         for linea in lineas:
             archivo.write(linea + "\n")
 
 
 def registrar_descartados(descartados):
-    """Agrega las filas descartadas al final de descartados.txt. Este archivo nunca se sobrescribe.
-    Como las filas de empleados.csv y movimientos.csv no se borran, la misma fila invalida
-    aparece cada vez que se abre el programa. Para no anotarla dos veces, primero se arma
-    un conjunto con las filas que ya estan en descartados.txt.
-    Devuelve cuantas filas nuevas se agregaron."""
+    # Agrega las filas descartadas al final de descartados.txt. Este archivo nunca se sobrescribe.
+    # Como las filas de empleados.csv y movimientos.csv no se borran, la misma fila invalida
+    # aparece cada vez que se abre el programa. Para no anotarla dos veces, primero se arma
+    # un conjunto con las filas que ya estan en descartados.txt.
+    # Devuelve cuantas filas nuevas se agregaron.
     if len(descartados) == 0:
         return 0
 

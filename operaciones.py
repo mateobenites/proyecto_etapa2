@@ -13,7 +13,7 @@ from datetime import datetime
 # Movimientos
 
 def crear_movimiento(codigo, legajo, tipo_movimiento, estado_anterior, estado_nuevo, usuario, detalle):
-    """Arma el diccionario de un movimiento con la fecha y la hora actuales."""
+    # Arma el diccionario de un movimiento con la fecha y la hora actuales.
     ahora = datetime.now()
     movimiento = {
         "fecha": ahora.strftime("%d/%m/%Y"),
@@ -32,8 +32,8 @@ def crear_movimiento(codigo, legajo, tipo_movimiento, estado_anterior, estado_nu
 # Altas y operaciones sobre equipos
 
 def registrar_equipo(equipos, codigo, tipo, usuario):
-    """Agrega un equipo nuevo en estado Disponible y devuelve el movimiento de alta.
-    El codigo tiene que venir validado (formato y prefijo)."""
+    # Agrega un equipo nuevo en estado Disponible y devuelve el movimiento de alta.
+    # El codigo tiene que venir validado (formato y prefijo).
     if codigo in equipos:
         raise ValueError("Ya existe un equipo con el codigo " + codigo + ".")
 
@@ -42,7 +42,7 @@ def registrar_equipo(equipos, codigo, tipo, usuario):
 
 
 def registrar_empleado(empleados, legajo, nombre, departamento):
-    """Agrega un empleado nuevo. Los datos tienen que venir validados."""
+    # Agrega un empleado nuevo. Los datos tienen que venir validados.
     if legajo in empleados:
         raise ValueError("Ya existe un empleado con el legajo " + legajo + ".")
 
@@ -50,7 +50,7 @@ def registrar_empleado(empleados, legajo, nombre, departamento):
 
 
 def asignar_equipo(equipos, empleados, codigo, legajo, usuario):
-    """Asigna un equipo Disponible a un empleado. Devuelve el movimiento."""
+    # Asigna un equipo Disponible a un empleado. Devuelve el movimiento.
     if codigo not in equipos:
         raise ValueError("No existe un equipo con el codigo " + codigo + ".")
     if legajo not in empleados:
@@ -68,7 +68,7 @@ def asignar_equipo(equipos, empleados, codigo, legajo, usuario):
 
 
 def devolver_equipo(equipos, empleados, codigo, usuario):
-    """Registra la devolucion de un equipo Asignado. Vuelve a Disponible y queda sin empleado."""
+    # Registra la devolucion de un equipo Asignado. Vuelve a Disponible y queda sin empleado.
     if codigo not in equipos:
         raise ValueError("No existe un equipo con el codigo " + codigo + ".")
 
@@ -89,8 +89,8 @@ def devolver_equipo(equipos, empleados, codigo, usuario):
 
 
 def cambiar_estado(equipos, codigo, nuevo_estado, transiciones, usuario, detalle):
-    """Cambia el estado de un equipo si la transicion esta permitida en la configuracion.
-    Asignar y devolver tienen sus propias opciones, por eso aca no se permiten."""
+    # Cambia el estado de un equipo si la transicion esta permitida en la configuracion.
+    # Asignar y devolver tienen sus propias opciones, por eso aca no se permiten.
     if codigo not in equipos:
         raise ValueError("No existe un equipo con el codigo " + codigo + ".")
 
@@ -149,7 +149,7 @@ def contar_movimientos_equipo(movimientos, codigo, i=0):
     # Recorre la lista de a un elemento por vez usando el indice i.
     # - Caso base: i llego al final de la lista, no quedan movimientos para revisar -> 0.
     # - Caso recursivo: miro el movimiento i y le sumo lo que da el resto de la lista (i + 1).
-    # Como i aumenta en cada llamada, siempre se llega al caso base."""
+    # Como i aumenta en cada llamada, siempre se llega al caso base.
     if i == len(movimientos):
         return 0
     if movimientos[i]["codigo"] == codigo:
@@ -161,7 +161,7 @@ def contar_movimientos_equipo(movimientos, codigo, i=0):
 # Calculos y acumulaciones
 
 def contar_por_estado(equipos, estados):
-    """Diccionario acumulador: cuantos equipos hay en cada estado."""
+    # Diccionario acumulador: cusntos equipos hay en cada estado.
     conteo = {}
     for estado in estados:
         conteo[estado] = 0
@@ -172,7 +172,7 @@ def contar_por_estado(equipos, estados):
 
 
 def porcentaje_asignados(equipos):
-    """Porcentaje de equipos en estado Asignado sobre el total. Si no hay equipos devuelve 0."""
+    # Porcentaje de equipos en estado Asignado sobre el total. Si no hay equipos devuelve 0.
     if len(equipos) == 0:
         return 0
     asignados = 0
@@ -183,9 +183,9 @@ def porcentaje_asignados(equipos):
 
 
 def asignados_por_departamento_y_tipo(equipos, empleados, departamentos, tipos):
-    """Reemplaza a la matriz de la etapa 1. Devuelve un diccionario de diccionarios:
-    {"Ventas": {"Desktop": 0, "Notebook": 1, ...}, "Sistemas": {...}, ...}
-    Se arma de nuevo cada vez que se necesita, a partir de equipos y empleados."""
+    # Devuelve un diccionario de diccionarios:
+    # {"Ventas": {"Desktop": 0, "Notebook": 1, ...}, "Sistemas": {...}, ...}
+    # Se arma de nuevo cada vez que se necesita, a partir de equipos y empleados.
     resultado = {}
     for depto in departamentos:
         resultado[depto] = {}
@@ -219,8 +219,8 @@ def total_por_tipo(por_depto_y_tipo):
 
 
 def departamentos_con_mas_equipos(totales_depto):
-    """Devuelve la lista de departamentos con mas equipos asignados (puede haber empate)
-    y la cantidad. Si nadie tiene equipos devuelve una lista vacia."""
+    # Devuelve la lista de departamentos con mas equipos asignados (puede haber empate)
+    # y la cantidad. Si nadie tiene equipos devuelve una lista vacia.
     if len(totales_depto) == 0:
         return [], 0
     maximo = max(totales_depto.values())
@@ -231,8 +231,7 @@ def departamentos_con_mas_equipos(totales_depto):
 
 
 def ranking_departamentos(totales_depto):
-    """Misma funcion de la etapa 1, adaptada a diccionarios.
-    Ordena de mayor a menor con una lambda y devuelve los 3 primeros (slicing)."""
+    # Ordena de mayor a menor con una lambda y devuelve los 3 primeros (slicing).
     totales = list(totales_depto.items())   # lista de tuplas (departamento, cantidad)
 
     obtener_cantidad = lambda x: x[1]
@@ -250,8 +249,8 @@ def ranking_departamentos(totales_depto):
 # Alertas y condiciones criticas
 
 def tipos_con_baja_disponibilidad(equipos, tipos, minimo):
-    """Devuelve un diccionario {tipo: cantidad_disponible} con los tipos que tienen
-    MENOS unidades disponibles que el minimo de la configuracion."""
+    # Devuelve un diccionario {tipo: cantidad_disponible} con los tipos que tienen
+    # menos unidades disponibles que el minimo de la configuracion.
     disponibles = {}
     for tipo in tipos.values():
         disponibles[tipo] = 0
@@ -268,18 +267,18 @@ def tipos_con_baja_disponibilidad(equipos, tipos, minimo):
 
 
 def equipos_con_legajo_inexistente(equipos, empleados):
-    """Equipos que figuran asignados a un legajo que no esta en empleados."""
+    # Equipos que figuran asignados a un legajo que no esta en empleados.
     return [codigo for codigo in equipos
             if equipos[codigo]["legajo"] != "" and equipos[codigo]["legajo"] not in empleados]
 
 
 def equipos_con_estado_inconsistente(equipos, movimientos):
-    """Devuelve un diccionario {codigo: estado_del_ultimo_movimiento} con los equipos cuyo
-    estado actual no coincide con el estado nuevo de su ultimo movimiento.
-    Los movimientos estan del mas viejo al mas nuevo. Al recorrerlos y guardar
-    ultimo_estado[codigo], la clave se pisa en cada vuelta, asi que al final cada
-    equipo queda con el estado de su ultimo movimiento.
-    Los equipos sin movimientos no se revisan."""
+    # Devuelve un diccionario {codigo: estado_del_ultimo_movimiento} con los equipos cuyo
+    # estado actual no coincide con el estado nuevo de su ultimo movimiento.
+    # Los movimientos estan del mas viejo al mas nuevo. Al recorrerlos y guardar
+    # ultimo_estado[codigo], la clave se pisa en cada vuelta, asi que al final cada
+    # equipo queda con el estado de su ultimo movimiento.
+    # Los equipos sin movimientos no se revisan.
     ultimo_estado = {}
     for mov in movimientos:
         ultimo_estado[mov["codigo"]] = mov["estado_nuevo"]
@@ -292,7 +291,7 @@ def equipos_con_estado_inconsistente(equipos, movimientos):
 
 
 def resumen_unicos(equipos, empleados, movimientos):
-    """Resumen armado con conjuntos (valores sin repetir)."""
+    # Resumen armado con conjuntos.
     # empleados que tienen al menos un equipo asignado
     empleados_con_equipo = set()
     for codigo in equipos:
@@ -366,8 +365,8 @@ def armar_reporte_general(equipos, empleados, config, usuario):
 
 
 def armar_reporte_alertas(equipos, empleados, movimientos, config, descartados, usuario):
-    """Devuelve las lineas del reporte de alertas y la cantidad de incidencias encontradas.
-    Las incidencias no se corrigen solas: solo se informan."""
+    # Devuelve las lineas del reporte de alertas y la cantidad de incidencias encontradas.
+    # Las incidencias no se corrigen solas: solo se informan.
     lineas = encabezado_reporte("REPORTE DE ALERTAS E INCIDENCIAS", usuario)
     cantidad = 0
 

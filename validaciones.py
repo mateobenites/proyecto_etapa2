@@ -15,9 +15,9 @@ TIPOS_MOVIMIENTO = ("alta", "asignacion", "devolucion", "cambio_estado")
 
 
 def validar_codigo(codigo, tipos):
-    """Valida el formato del codigo de equipo y que su prefijo exista en la configuracion.
-    tipos es el diccionario de la config que asocia prefijo con nombre (ej: "NTB" -> "Notebook").
-    Devuelve el tipo de equipo que corresponde al prefijo."""
+    # Valida el formato del codigo de equipo y que su prefijo exista en la configuracion.
+    # tipos es el diccionario de la config que asocia prefijo con nombre (ej: "NTB" -> "Notebook").
+    # Devuelve el tipo de equipo que corresponde al prefijo.
     if codigo == "":
         raise ValueError("El codigo de equipo es obligatorio.")
 
@@ -33,7 +33,7 @@ def validar_codigo(codigo, tipos):
 
 
 def validar_legajo(legajo, legajo_minimo, legajo_maximo):
-    """Valida que el legajo tenga 4 digitos (sin empezar con 0) y que este dentro del rango."""
+    # Valida que el legajo tenga 4 digitos (sin empezar con 0) y que este dentro del rango.
     if legajo == "":
         raise ValueError("El legajo es obligatorio.")
 
@@ -48,7 +48,7 @@ def validar_legajo(legajo, legajo_minimo, legajo_maximo):
 
 
 def validar_fecha(fecha):
-    """Valida que la fecha tenga formato dd/mm/aaaa y que sea una fecha real."""
+    # Valida que la fecha tenga formato dd/mm/aaaa y que sea una fecha real.
     if not re.match(PATRON_FECHA, fecha):
         raise ValueError("Fecha '" + fecha + "' invalida. El formato esperado es dd/mm/aaaa (por ejemplo 15/03/2026).")
 
@@ -63,30 +63,30 @@ def validar_fecha(fecha):
 
 
 def validar_obligatorio(valor, campo):
-    """Controla que un campo de texto no este vacio."""
+    # Controla que un campo de texto no este vacio.
     if valor == "":
         raise ValueError("El campo " + campo + " es obligatorio.")
     return valor
 
 
 def validar_sin_separador(valor, campo):
-    """Controla que un texto libre (nombre, motivo) no tenga punto y coma.
-    El ; es el separador de los CSV: si se guardara, la fila quedaria con un campo de mas."""
+    # Controla que un texto libre (nombre, motivo) no tenga punto y coma.
+    # El ; es el separador de los CSV: si se guardara, la fila quedaria con un campo de mas.
     if ";" in valor:
         raise ValueError("El campo " + campo + " no puede tener ';' porque es el separador de los archivos.")
     return valor
 
 
 def validar_en_lista(valor, opciones, campo):
-    """Controla que el valor este entre las opciones permitidas.
-    Se usa para estados, departamentos, tipos y tipos de movimiento."""
+    # Controla que el valor este entre las opciones permitidas.
+    # Se usa para estados, departamentos, tipos y tipos de movimiento.
     if valor not in opciones:
         raise ValueError(campo + " '" + valor + "' invalido. Opciones validas: " + ", ".join(opciones))
     return valor
 
 
 def validar_login(usuario, contrasena, usuarios):
-    """Devuelve True si el usuario existe y la contrasena coincide."""
+    # Devuelve True si el usuario existe y la contrasena coincide.
     if usuario in usuarios and usuarios[usuario] == contrasena:
         return True
     return False

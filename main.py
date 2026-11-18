@@ -16,7 +16,7 @@ import operaciones
 # Login
 
 def iniciar_sesion(usuarios):
-    """Pide usuario y contrasena, con 3 intentos. Devuelve el usuario o "" si se agotan."""
+    # Pide usuario y contrasena, con 3 intentos. Devuelve el usuario o "" si se agotan.
     print("\n--- INICIO DE SESION ---")
     intentos = 0
     while intentos < 3:
@@ -33,10 +33,10 @@ def iniciar_sesion(usuarios):
 # Funciones auxiliares
 
 def guardar_operacion(equipos, movimientos, codigo, copia, movimiento):
-    """Guarda equipos.csv y despues agrega el movimiento en movimientos.csv.
-    La operacion solo se confirma si se guardan los dos archivos. Si falla alguno,
-    el equipo vuelve a como estaba (copia) y se vuelve a guardar equipos.csv.
-    copia es None cuando es un alta: en ese caso deshacer es borrar el equipo nuevo."""
+    # Guarda equipos.csv y despues agrega el movimiento en movimientos.csv.
+    # La operacion solo se confirma si se guardan los dos archivos. Si falla alguno,
+    # el equipo vuelve a como estaba (copia) y se vuelve a guardar equipos.csv.
+    # copia es None cuando es un alta: en ese caso deshacer es borrar el equipo nuevo.
     try:
         archivos.guardar_equipos(equipos)
         archivos.agregar_movimiento(movimiento)
@@ -130,7 +130,7 @@ def mostrar_menu(usuario):
 
 
 def generar_alertas(equipos, empleados, movimientos, config, descartados, usuario):
-    """Arma el reporte de alertas, lo guarda en alertas.txt y devuelve la cantidad de incidencias."""
+    # Arma el reporte de alertas, lo guarda en alertas.txt y devuelve la cantidad de incidencias.
     lineas, cantidad = operaciones.armar_reporte_alertas(equipos, empleados, movimientos, config, descartados, usuario)
     try:
         archivos.guardar_texto(archivos.ARCHIVO_ALERTAS, lineas)
