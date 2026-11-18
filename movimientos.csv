@@ -39,6 +39,3 @@ fecha;hora;codigo;legajo;tipo_movimiento;estado_anterior;estado_nuevo;usuario;de
 28/08/2026;11:12:55;NTB-0004;;cambio_estado;Disponible;En reparación;mbenites;Pantalla rota
 15/10/2026;15:40:21;MON-0004;;cambio_estado;Disponible;En reparación;sperez;Falla de imagen
 30/10/2026;10:05:36;DSK-0005;;cambio_estado;Disponible;En reparación;ttobar;Ruido en el ventilador
-18/11/2026;12:16:31;NTB-1234;;alta;;Disponible;admin;Alta de equipo Notebook
-18/11/2026;12:19:03;NTB-1234;1000;asignacion;Disponible;Asignado;admin;Asignado a Mateo Benites
-18/11/2026;12:20:21;NTB-1234;1000;devolucion;Asignado;Disponible;admin;Devuelto por Mateo Benites
