@@ -13,9 +13,7 @@ import validaciones
 import operaciones
 
 
-# ---------------------------------------------------------------
 # Login
-# ---------------------------------------------------------------
 
 def iniciar_sesion(usuarios):
     """Pide usuario y contrasena, con 3 intentos. Devuelve el usuario o "" si se agotan."""
@@ -32,9 +30,7 @@ def iniciar_sesion(usuarios):
     return ""
 
 
-# ---------------------------------------------------------------
 # Funciones auxiliares
-# ---------------------------------------------------------------
 
 def guardar_operacion(equipos, movimientos, codigo, copia, movimiento):
     """Guarda equipos.csv y despues agrega el movimiento en movimientos.csv.
@@ -143,9 +139,7 @@ def generar_alertas(equipos, empleados, movimientos, config, descartados, usuari
     return cantidad
 
 
-# ---------------------------------------------------------------
 # Opciones del menu
-# ---------------------------------------------------------------
 
 def opcion_acerca():
     print("\n--- ACERCA DEL SISTEMA ---")
@@ -487,9 +481,7 @@ def opcion_generar_reportes(config, equipos, empleados, movimientos, descartados
     print("Reporte de alertas guardado en", archivos.ARCHIVO_ALERTAS, "(" + str(cantidad) + " incidencias)")
 
 
-# ---------------------------------------------------------------
 # Programa principal
-# ---------------------------------------------------------------
 
 def main():
     print("=== SISTEMA DE ADMINISTRACION DE EQUIPAMIENTO TECNOLOGICO ===")

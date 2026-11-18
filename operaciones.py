@@ -2,10 +2,6 @@
 # Logica del sistema: altas, asignaciones, devoluciones, cambios de estado,
 # calculos, reportes y la funcion recursiva.
 #
-# A diferencia de la etapa 1, estas funciones NO usan print ni input:
-# reciben los datos por parametro y devuelven resultados. Si algo no se
-# puede hacer, lanzan ValueError con el motivo. Asi se pueden probar con pytest.
-#
 # Estructuras que se usan:
 #   equipos     -> diccionario {codigo: {"tipo", "estado", "legajo"}}
 #   empleados   -> diccionario {legajo: {"nombre", "departamento"}}
@@ -14,9 +10,7 @@
 from datetime import datetime
 
 
-# ---------------------------------------------------------------
 # Movimientos
-# ---------------------------------------------------------------
 
 def crear_movimiento(codigo, legajo, tipo_movimiento, estado_anterior, estado_nuevo, usuario, detalle):
     """Arma el diccionario de un movimiento con la fecha y la hora actuales."""
@@ -35,9 +29,7 @@ def crear_movimiento(codigo, legajo, tipo_movimiento, estado_anterior, estado_nu
     return movimiento
 
 
-# ---------------------------------------------------------------
 # Altas y operaciones sobre equipos
-# ---------------------------------------------------------------
 
 def registrar_equipo(equipos, codigo, tipo, usuario):
     """Agrega un equipo nuevo en estado Disponible y devuelve el movimiento de alta.
@@ -123,18 +115,15 @@ def cambiar_estado(equipos, codigo, nuevo_estado, transiciones, usuario, detalle
     return crear_movimiento(codigo, "", "cambio_estado", estado_actual, nuevo_estado, usuario, detalle)
 
 
-# ---------------------------------------------------------------
 # Busquedas y filtros
-# ---------------------------------------------------------------
 
 def equipos_de_empleado(equipos, legajo):
-    """Devuelve la lista de codigos de los equipos que tiene asignados un empleado."""
+    # Devuelve la lista de codigos de los equipos que tiene asignados un empleado.
     return [codigo for codigo in equipos if equipos[codigo]["legajo"] == legajo]
 
 
 def filtrar_equipos(equipos, empleados, campo, valor):
-    """Devuelve los codigos de los equipos que cumplen el filtro.
-    campo puede ser "estado", "tipo" o "departamento"."""
+    # Devuelve los codigos de los equipos que cumplen el filtro. campo puede ser "estado", "tipo" o "departamento".
     resultado = []
     for codigo in equipos:
         equipo = equipos[codigo]
@@ -156,11 +145,11 @@ def movimientos_por_equipo(movimientos, codigo):
 
 
 def contar_movimientos_equipo(movimientos, codigo, i=0):
-    """Cuenta en forma RECURSIVA cuantos movimientos tiene un equipo.
-    Recorre la lista de a un elemento por vez usando el indice i.
-    - Caso base: i llego al final de la lista, no quedan movimientos para revisar -> 0.
-    - Caso recursivo: miro el movimiento i y le sumo lo que da el resto de la lista (i + 1).
-    Como i aumenta en cada llamada, siempre se llega al caso base."""
+    # Cuenta en forma RECURSIVA cuantos movimientos tiene un equipo.
+    # Recorre la lista de a un elemento por vez usando el indice i.
+    # - Caso base: i llego al final de la lista, no quedan movimientos para revisar -> 0.
+    # - Caso recursivo: miro el movimiento i y le sumo lo que da el resto de la lista (i + 1).
+    # Como i aumenta en cada llamada, siempre se llega al caso base."""
     if i == len(movimientos):
         return 0
     if movimientos[i]["codigo"] == codigo:
@@ -169,9 +158,7 @@ def contar_movimientos_equipo(movimientos, codigo, i=0):
         return 0 + contar_movimientos_equipo(movimientos, codigo, i + 1)
 
 
-# ---------------------------------------------------------------
 # Calculos y acumulaciones
-# ---------------------------------------------------------------
 
 def contar_por_estado(equipos, estados):
     """Diccionario acumulador: cuantos equipos hay en cada estado."""
@@ -260,9 +247,7 @@ def ranking_departamentos(totales_depto):
     return totales[:3]
 
 
-# ---------------------------------------------------------------
 # Alertas y condiciones criticas
-# ---------------------------------------------------------------
 
 def tipos_con_baja_disponibilidad(equipos, tipos, minimo):
     """Devuelve un diccionario {tipo: cantidad_disponible} con los tipos que tienen
@@ -338,9 +323,7 @@ def resumen_unicos(equipos, empleados, movimientos):
     }
 
 
-# ---------------------------------------------------------------
 # Reportes (devuelven una lista de lineas, main.py las guarda en el .txt)
-# ---------------------------------------------------------------
 
 def encabezado_reporte(titulo, usuario):
     ahora = datetime.now()
